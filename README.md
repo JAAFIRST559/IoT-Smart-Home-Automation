@@ -14,7 +14,7 @@ When you have completed this code pattern, you will understand how to:
 * Send messages to Slack.
 
 ## Flow
-![ArchitectureDiagram](images/SH_Architecture_DiagramV3.png)
+![ArchitectureDiagram](/SH_Architecture_DiagramV3.png)
  
 1.	The smart home consists of 13 sensors and actuators connected to an Arduino-like device. This device has an extra board where all the components are connected to.
 2. The smart garden, which is a NodeMCU-device a sensor to control the garden (optional).
@@ -285,7 +285,7 @@ Optional:
 I added a [Sense HAT](https://www.raspberrypi.org/products/sense-hat/?resellerType=home) to the Raspberry Pi to make it visual when messages are being sent. A Sense HAT is an additional board on top of a Raspberry Pi. It consists of sensors, joystick and a LED matrix. Every time a message goes through the broker, an image is being displayed on the LED Matrix of the Sense HAT. 
 
 For displaying, I created an application in Node-RED  for that:
-![MQTT Flow](images/SH_MQTT_Flow.png)
+![MQTT Flow](/SH_MQTT_Flow.png)
 
 The flow works as follows:
 1. If a sensor is being activated or a picture is taken, data is being sent via the MQTT-broker running on this Raspberry Pi. This Node-RED flow is there to make it visual, the MQTT broker will work without this flow as well.
@@ -301,7 +301,7 @@ In this step, you will create a simple flow. This flow is needed to send and rec
 The messages are being split into the right format to make it possible to show on the dashboard. Then they are being sent via MQTT to the dashboard. 
 There is also a connection with Slack. If movement is detected at the front of the home a message is being sent to Slack and a picture is being made with the camera and send to the dashboard.
 
-![Gateway Flow](images/SH_Gateway_Flow.png)
+![Gateway Flow](/SH_Gateway_Flow.png)
 
 
 
@@ -313,18 +313,18 @@ The flow can be found [here](/flows/Gateway_flow)
 
 This dashboard receives data from the connected devices, especially from some sensors. You can also start these sensors and take images to see what is going on around the house.
 
-![Dashboard](images/SH_Dashboard.png)
+![Dashboard](/SH_Dashboard.png)
 
 To get the data on the dashboard you need to create a flow:
 
 
-<img src="images/SH_Local_Flow.png" width="100%" height="100%"/>
+<img src="/SH_Local_Flow.png" width="100%" height="100%"/>
 
 This flow consists of two parts:
 * On the left side all the data comes in via the MQTT-nodes and forwarded to the dashboard elements, these are all graphs except for the picture. I used a mustache template for that, to show the picture on the dashboard.
 * On the right side are all the elements to control the sensors and actuators. They consist of buttons to activate the sensors and switches to turn off and on the actuators.
 
-The flow can be found [here](/flows/Local_flow)
+The flow can be found [here](/Local_flow)
 
 ## Step 8 Optional: Set-up Smart garden with Node-MCU and soil moisture sensor.
 
@@ -333,13 +333,13 @@ I added an extra device to monitor the garden. I used a NodeMCU device for that.
 
 This device its data from the soil moisture sensor via MQTT to the gateway to display it on the dashboard. This data will be displayed on the dashboard as well To upload and compile the code, I use the Arduino IDE.
 
-The code is available [here](/code/NodeMCU).
+The code is available [here](/NodeMCU).
 
 ## Final Thoughts
 
 When you followed all the steps and used all the devices as described, you have built something similar as in the picture below. You can now test all the functionalities and see if it works. If you have any improvements or additional functionalities or comments etc. please let me know.
 
-<img src="images/SH_Overview_Devices.jpeg" width="100%" height="100%"/>
+<img src="/SH_Overview_Devices.jpeg" width="100%" height="100%"/>
 
 1. Smart Home with sensors and actuators.
 2. Smart Garden (Node-MCU with sensor).
@@ -366,12 +366,5 @@ Create a free IBM cloud [here](http://cloud.ibm.com).
 
 
 
-
-
-## License
-
-This tutorial is licensed under the Apache License, Version 2. Separate third-party code objects invoked within this tutorial are licensed by their respective providers pursuant to their own separate licenses. Contributions are subject to the [Developer Certificate of Origin, Version 1.1](https://developercertificate.org/) and the [Apache License, Version 2](https://www.apache.org/licenses/LICENSE-2.0.txt).
-
-[Apache License FAQ](https://www.apache.org/foundation/license-faq.html#WhatDoesItMEAN)
 
 
